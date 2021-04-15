@@ -1,0 +1,71 @@
+<div class="container-fluid animate__animated animate__flipInX">
+    <form [formGroup]="login" (ngSubmit)="loginSubmit()">
+        <!-- HEADER -->
+        <header>
+            <strong> Login </strong>
+        </header>
+        <p>Enter your username and password to log on.</p>
+
+        <!-- USER -->
+        <div class="mb-3">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="username"
+                        [class.is-invalid]="validationError('username')" [class.is-valid]="validation('username')" />
+                </div>
+                <ng-container>
+                    <small *ngIf="controlError('username', 'required')" class="form-text text-danger">
+                        Email address is required.
+                    </small>
+                    <small *ngIf="controlError('username', 'pattern')" class="form-text text-warning">
+                        Please provide a valid email.
+                    </small>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="mb-2">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-key"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                        [class.is-invalid]="validationError('password')" [class.is-valid]="validation('password')" />
+                </div>
+                <ng-container>
+                    <small *ngIf="controlError('password', 'required')" class="form-text text-danger">
+                        Password is required.
+                    </small>
+                    <small *ngIf="controlError('password', 'minlength')" class="form-text text-warning">
+                        Password can't be less than 4 characters.
+                    </small>
+                    <small *ngIf="controlError('password', 'maxlength')" class="form-text text-info">
+                        Password can't be more than 10 characters.
+                    </small>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- REGISTER & RECOVER -->
+        <div class="row">
+            <div class="col">
+                <a routerLink="/register"> Register </a>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <a routerLink="/recoverPassword"> Recover Password </a>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 mt-1 pb-2 mt-2">
+            <!-- BUTTON -->
+            <button type="submit" class="btn btn-secondary" [disabled]="login.invalid">
+                Login
+            </button>
+        </div>
+    </form>
+</div>

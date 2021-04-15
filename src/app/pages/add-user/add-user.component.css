@@ -1,0 +1,27 @@
+form{
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    background-color: white;
+
+
+    
+}
+
+.fas.fa-user,
+.far.fa-user,
+.far.fa-envelope,
+.fas.fa-birthday-cake,
+.fas.fa-id-badge,
+.fas.fa-calendar-day,
+.fas.fa-id-card-alt{
+    color: gray;
+}
+.fas.fa-save{
+    color: white;
+}
+.btn-info{
+    color: white;
+    font-weight: 700;
+}

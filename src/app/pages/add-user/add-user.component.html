@@ -1,0 +1,107 @@
+ <!-- NAVBAR -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <i class="fas fa-users"></i> </a>
+        <div class="navbar-nav d-flex justify-content-end">
+          <a class="nav-link" routerLink='/usersList'> <i class="fas fa-arrow-left"></i> </a>
+        </div>
+    </div>
+  </nav>
+
+<div class="container animate__animated animate__fadeInUp">
+    
+    <form [formGroup]="addUser" (ngSubmit)="userSubmit()">
+        <h2> <i class="fas fa-user-plus"></i> Add User </h2> 
+        <hr>
+        <!-- ID -->
+        <div class="row mb-2">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-id-card-alt"></i></span>
+                        <input type="text" class="form-control" placeholder="ID" formControlName="id">
+                    </div>
+                    <small class="form-text text-muted"> This input is self-generated.</small>
+                </div>
+            </div>
+        </div>
+        <!-- FIRST NAME -->
+        <div class="row mb-2">
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" [class.is-valid]="validation('firstName')">
+                    </div>
+                </div>
+            </div>
+            <!-- LAST NAME -->
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text"> <i class="far fa-user"></i> </span>
+                        <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" [class.is-valid]="validation('lastName')">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- EMAIL -->
+        <div class="row mb-2">
+            <div class="col">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Email" formControlName="email" [class.is-valid]="validation('email')">
+            </div>
+           
+        </div>
+            </div>
+        </div>
+         <!-- BIRTHDATE -->
+        <div class="row mb-2">
+            <div class="col">
+                <div class="form-group">
+                   <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                       <input type="text" class="form-control"  placeholder="BirthDate" formControlName="birthDate" [class.is-valid]="validation('birthDate')">
+                   </div>
+                </div>
+            </div>
+             <!-- ROLE -->
+            <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                        <input type="text" class="form-control" placeholder="Rol" formControlName="roleId" [class.is-valid]="validation('roleId')">
+                    </div>
+                </div>
+            </div>
+             <!-- CREATED AT -->
+             <div class="col">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                        <input type="text" class="form-control" placeholder="Created At" formControlName="createdAt" [class.is-valid]="validation('createdAt')">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-dark" routerLink='/usersList'> Cancel </button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-info" [disabled]="addUser.invalid" > <i class="fas fa-save"></i> Save  </button>
+                </div>
+            </div>
+        </div>
+
+       
+        
+    </form>
+</div>

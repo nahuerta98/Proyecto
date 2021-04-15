@@ -1,0 +1,35 @@
+
+table{
+    text-align: center;
+}
+hr{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.mr{
+    margin-right: 0.5rem;
+}
+.fas{
+    color: white;
+}
+.btn-info, .btn-success{
+    width: auto;
+    height: 2.4rem;
+}
+h2{
+    text-align: center;
+    color: white;
+}
+
+.fa-angle-left,
+.fa-angle-right,
+.fa-angle-double-left,
+.fa-angle-double-right{
+    color: #333333;
+}
+.num-range{
+    color: white;
+    font-weight: 700;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}

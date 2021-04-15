@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+html, body {
+    width: 100%;
+    height: 100%;
+    
+    margin: 0;
+    padding: 0;
+
+    background-image: url('https://www.xtrafondos.com/wallpapers/ubuntu-linux-minimalism-3445.jpg');
+    position: absolute;
+    background-size: cover;
+    /*background-color: #333333;*/
+}
+

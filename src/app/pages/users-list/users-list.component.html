@@ -1,0 +1,67 @@
+ <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <i class="fas fa-users"></i> </a>
+      <div class="navbar-nav d-flex justify-content-end">
+        
+      </div>
+  </div>
+</nav>
+ 
+ <div class="container">
+  <div class="row mb-1">
+    <div class="col-4">
+      <button type="button" class="btn btn-success" (click)="exportexcel()"><i class="fas fa-file-download"></i> Download Excel File </button>
+    </div>
+    <div class="col-4"> <h2> Users List </h2></div>
+    <div class="col-4 d-flex justify-content-end" >
+      <button type="button" class="btn btn-info" routerLink="/addUser/new"><i class="fas fa-user-plus"></i></button>
+    </div>
+  </div>
+  
+    <!-- USERS LIST -->
+    <table id="excel-table" class="table table-light">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">BirthDate</th>
+            <th scope="col">CreatedAt</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Tools</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users.data; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.email}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.birthDate}}</td>
+            <td>{{user.createAt}}</td>
+            <td>{{user.rol}}</td>
+            <td>
+                <button type="button" class="btn btn-warning mr" [routerLink]="['/addUser',user.id]"><i class="fas fa-user-edit"></i></button>
+                <button type="button" class="btn btn-danger mr"><i class="fas fa-user-minus" (click)="deleteUser(user.id)"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <!--LEFT ARROW-->
+          <button (click)="getUsers(currentPage - 1)" [disabled]="firstPage()" type="button" class="btn btn-light mr"><i class="fas fa-angle-left"></i></button>
+          <button (click)="getUsers(1)" [disabled]="firstPage()" type="button" class="btn btn-light mr"><i class="fas fa-angle-double-left"></i></button>
+          <div class="num-range">
+            {{initialRange()}} - {{lastRange()}} of {{users.totalRecords}}
+          </div>
+          <!--RIGHT ARROW-->
+          <button (click)="getUsers(totalPages)" [disabled]="finalPage()" type="button" class="btn btn-light mr"><i class="fas fa-angle-double-right"></i></button>
+          <button (click)="getUsers(currentPage + 1)" [disabled]="finalPage()" type="button" class="btn btn-light mr"><i class="fas fa-angle-right"></i></button>
+          
+        </div>
+      </div>
+</div>
